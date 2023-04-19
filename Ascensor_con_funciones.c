@@ -6,7 +6,8 @@ void llamarascensor(){
     int pisous;
         printf("\nIntroducir en que piso esta usted(0-9): ");
         scanf("%d", &pisous);
-         if(pisoact == pisous){
+        if (pisous >= 0 && pisous <= 9){
+            if(pisoact == pisous){
             	printf("El ascensor ya esta en el piso actual\n");
             }else{
             	printf("Moviendo el ascensor al piso %d\n",pisous);
@@ -22,6 +23,9 @@ void llamarascensor(){
 				}
 			printf("El ascensor llego al piso %d\n", pisoact);	
 			}
+            }else{
+                printf("No se ha seleccionado un piso valido\n");
+            }
 }
 
 
@@ -56,6 +60,7 @@ void seleccionarpiso(){
 
 
 void mostrarpiso(){
+
     switch(pisoact){
 
 		case 0:
@@ -103,8 +108,7 @@ void mostrarpiso(){
 
 void menu(){
     int opc = 0;
-    while (opc != 4)
-    {
+    do{
         printf("\nSeleccione la opcion\n");
         printf("\n1. Llamar a ascensor\n");
         printf("2. Seleccionar piso\n");
@@ -129,7 +133,7 @@ void menu(){
         	printf("\nOpcion invalida. Por favor, seleccione una opcion valida.\n");
             break;
         }
-    }  
+    }while (opc != 4);
 }
 
 
